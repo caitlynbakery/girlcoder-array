@@ -32,7 +32,14 @@ var recipe4 = {
     imgUrl: "pizza.png"
 }
 
+var recipe5 = {
+    name: "salad",
+    time: "7 min",
+    ingredients: 'spinach, dressing, cheese, toppers',
+    meal: "appetizer",
+    imgUrl: "salad.jpg"
+}
 
 var recipeArray = [
-    recipe1, recipe2, recipe3, recipe4
+    recipe1, recipe2, recipe3, recipe4, recipe5
 ]

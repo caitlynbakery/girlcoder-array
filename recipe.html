@@ -16,7 +16,10 @@
 <h1>Recipe Finder</h1>
 <form name="recipeForm">
     <div>Name of Recipe:
-    <input name="recipeBox">
+    <input name="recipeBox" value='none'>
+    </div>
+    <div>Meal:
+        <input name="mealBox" value='none'>
     </div>
 </form>
 <button onclick="recipeFinder()">Search</button>
@@ -28,21 +31,28 @@
 <script>
     function recipeFinder(){
         var recipeName = recipeForm.recipeBox.value;
+        var mealName = recipeForm.mealBox.value;
+
         for(index in recipeArray){
             var recipeObject = recipeArray[index];
-            var theRecipe = document.getElementById("theRecipe");
             if(recipeObject.name.includes(recipeName)){
-                
-                var recipeHTML = '<b>' + recipeObject.name + '</b>' +
-                                '<br> Time: ' + recipeObject.time + 
-                                '<br> Ingredients: ' + recipeObject.ingredients +
-                                '<br> Meal: ' + recipeObject.meal + '<br>' +
-                                '<img src =' + recipeObject.imgUrl + '>'; 
-                theRecipe.innerHTML = recipeHTML;
+                displayRecipe(recipeObject);
+            }
+            if(recipeObject.meal.includes(mealName)){
+                displayRecipe(recipeObject);
             }
         }
-        
+    }
 
+    function displayRecipe(recipeObject){
+        var theRecipe = document.getElementById("theRecipe");
+            var recipeHTML = '<b>' + recipeObject.name + '</b>' +
+                            '<br> Time: ' + recipeObject.time + 
+                            '<br> Ingredients: ' + recipeObject.ingredients +
+                            '<br> Meal: ' + recipeObject.meal + '<br>' +
+                            '<img src =' + recipeObject.imgUrl + '>'; 
+            theRecipe.innerHTML = recipeHTML;
+            
     }
 
 </script>
