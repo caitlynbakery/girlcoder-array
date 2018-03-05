@@ -1,0 +1,48 @@
+<script src="recipeData.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<style>
+    body{
+        font-family: 'Quicksand', 'sans-serif';
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    input{
+        margin-left: 10px;
+    }
+    img{
+        width: 15%;
+    }
+</style>
+<h1>Recipe Finder</h1>
+<form name="recipeForm">
+    <div>Name of Recipe:
+    <input name="recipeBox">
+    </div>
+</form>
+<button onclick="recipeFinder()">Search</button>
+<hr>
+<p id="theRecipe">
+
+</p>
+
+<script>
+    function recipeFinder(){
+        var recipeName = recipeForm.recipeBox.value;
+        for(index in recipeArray){
+            var recipeObject = recipeArray[index];
+            var theRecipe = document.getElementById("theRecipe");
+            if(recipeObject.name.includes(recipeName)){
+                
+                var recipeHTML = '<b>' + recipeObject.name + '</b>' +
+                                '<br> Time: ' + recipeObject.time + 
+                                '<br> Ingredients: ' + recipeObject.ingredients +
+                                '<br> Meal: ' + recipeObject.meal + '<br>' +
+                                '<img src =' + recipeObject.imgUrl + '>'; 
+                theRecipe.innerHTML = recipeHTML;
+            }
+        }
+        
+
+    }
+
+</script>
